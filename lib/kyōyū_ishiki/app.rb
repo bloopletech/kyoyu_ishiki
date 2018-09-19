@@ -4,7 +4,10 @@ class KyōyūIshiki::App
   end
 
   def call(env)
-    Rack::Response.new { |response| handle(Rack::Request.new(env), response) }.finish
+    Rack::Response.new do |response|
+      response['Access-Control-Allow-Origin'] = '*'
+      handle(Rack::Request.new(env), response)
+    end.finish
   end
 
   def handle(request, response)
