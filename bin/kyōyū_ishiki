@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "kyōyū_ishiki"
+
+KyōyūIshiki::CLI.new(ARGV).start
